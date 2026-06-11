@@ -19,7 +19,7 @@ def get_calendar_service():
 
 
 
-def create_event(title, start_time, end_time):
+def create_event(title, start_time, end_time,attendees=None):
     service = get_calendar_service()
 
     event = {
@@ -33,12 +33,18 @@ def create_event(title, start_time, end_time):
             "timeZone": "UTC"
         }
     }
+    # Ajouter les participants si fournis
+
+    if attendees:
+            event["attendees"] = [{"email": email} for email in attendees]
+
 
     created_event = (
         service.events()
         .insert(
             calendarId="primary",
-            body=event
+            body=event,
+            sendUpdates="all" # envoie les invitations par email automatiquement
         )
         .execute()
     )

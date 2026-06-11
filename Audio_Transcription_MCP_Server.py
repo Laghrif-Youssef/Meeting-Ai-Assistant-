@@ -37,7 +37,7 @@ Transcript:
 """
 
     response = ollama.chat(
-        model="qwen2.5:3b",
+        model="qwen3:8b",
         messages=[
             {
                 "role": "user",

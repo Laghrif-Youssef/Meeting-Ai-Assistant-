@@ -5,7 +5,7 @@ import ollama
 # Use a model large enough to reliably follow JSON schemas.
 # qwen2.5:3b hallucinates too much for structured tool use.
 # Recommended: qwen2.5:7b, mistral:7b, or llama3.2:latest
-MODEL = "qwen2.5:3b"
+MODEL = "qwen3:8b"
 
 
 def ask_llm(messages: list[dict], system_prompt: str) -> str:
